@@ -1,16 +1,16 @@
-// Vue.component('radio-options', {
-//   props: ['name', 'model', 'year', 'materials', 'height', 'id'],
-//   template: `
-//   <h3>{{question}}</h3>
-//   <label class="container">Scared for my life
-//     <input type="radio" value="{{safety}}">
-//     <span class="radio"></span>
-//   </label>`
-// });
+// SCROLL PROGRESS FUNCTION
+window.onscroll = function() {myFunction()};
+
+function myFunction() {
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+  document.getElementById("myBar").style.width = scrolled + "%";
+};
 
 
 var myVue = new Vue({
- el: "#form",
+ el: "#app",
  data () {
    return {
    purpose: [],
@@ -24,29 +24,32 @@ var myVue = new Vue({
    otherrace: "",
    employment: "",
    otheremployment: ""
-   // consoles: [
-   //   { question: "How safe do you feel biking in this area?",
-   //     model: "CH20",
-   //     year: 1956,
-   //     materials: "oak and leather",
-   //     height: 73,
-   //      id: 1},
-   //   { name: "Dining chair",
-   //     model: "CH23",
-   //     year: 1950,
-   //     materials: "oak, walnut, natural cord",
-   //     height: 78.6,
-   //   id: 2}
-   // ]
- }}
+ },
+ methods: {
+   saveMyForm: function() {
+    localStorage.setItem("purposetwo", this.purpose);
+    localStorage.setItem("activitytwo", this.activity);
+    localStorage.setItem("transporttwo", this.transport);
+    localStorage.setItem("othertransporttwo", this.othertransport);
+    localStorage.setItem("safetwo", this.safe);
+    localStorage.setItem("timetwo", this.time);
+    localStorage.setItem("agetwo", this.age);
+    localStorage.setItem("ethnicitytwo", this.ethnicity);
+    localStorage.setItem("otherracetwo", this.otherrace);
+    localStorage.setItem("employmenttwo", this.employment);
+    localStorage.setItem("otheremploymenttwo", this.otheremployment);
 
+    window.location = "../survey-success.html"
+        }
+      }
+ });
 //  methods: {
 //   handleSubmit() {
 //     // Send data to the server or update your stores and such.
 //   }
 // }
 
- });
+
 
  ///*** RESULTS COMPONENT ***///
  // Vue.component('results', {
