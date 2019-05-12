@@ -1,19 +1,96 @@
 <!doctype html>
 
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="utf-8">
+    <title>SPOKED</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
-    <title>Spoked</title>
-  </head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-  <body>
-    <div id="form" v-cloak>
+    <style>
+    @font-face {
+    font-family: "Druk Condensed";
+    src: url(fonts/druk_condensed/DrukCond-Super.otf);
+    }
+    </style>
+
+    <style>
+    @font-face {
+    font-family: "Avenir Next";
+    src: url(fonts/avenir-next/Avenir-Next.ttc);
+    }
+    </style>
+
+    <style>
+    @font-face {
+    font-family: "Berbati";
+    src: url(fonts/berbati/Webfont/Berbati-Regular.woff);
+    }
+    </style>
+
+    </head>
+
+<body>
+  <div class="hidden-nav" id="myhiddennav">
+    <!-- Button to close the mobile navigation -->
+      <a href="javascript:void(0)" class="close-icon" onclick="closeNav()">&times;</a>
+
+    <!-- Mobile nav content -->
+    <div class="hidden-nav-content">
+      <a href="index.html">Home</a>
+      <a href="whatwedo.html">What we do</a>
+      <a href="#">Projects</a>
+      <a href="toolkit.html">Get the toolkit</a>
+      <a href="team.html">Our team</a>
+    </div>
+  </div>
+
+
+  <nav class="main-nav">
+    <h1><a href="index.html">SPOKED</a></h1>
+    <span onclick="openNav()" class="bars">&#9776;</span>
+    <ul>
+      <li><a href="whatwedo.html">What we do</a></li>
+      <li class="dropdown"><a href="">Projects</a>
+          <ul class="drop-nav">
+            <li class="flyout"><a href="current-projects.html">Current</a>
+              <ul class="flyout-nav">
+                <li><a href="project1.html">Project 1</a></li>
+                <li><a href="#">Project 2</a></li>
+                <li><a href="#">Project 3</a></li>
+              </ul>
+            </li>
+            <li><a href="past-projects.html">Past</a></li>
+          </ul>
+        </li>
+      <li><a href="toolkit.html">Get the toolkit</a></li>
+      <li><a href="team.html">Our team</a></li>
+    </ul>
+  </nav>
+
+
+  <div class="intro-two">
+    <h1>Project 2 Community Survey</h1>
+    <h2>As someone who commutes along this corridor, we highly value your input in order to make this a functional and beneficial space for all its users.</h2>
+  </div>
+
+
+
+  <div class="progress-header">
+    <div class="progress-container">
+      <div class="progress-bar" id="myBar"></div>
+    </div>
+  </div>
+
+  <div id="app" v-cloak>
     <div class="segment">
+
       <div class="one-third survey">
         <h2>Travel Habits</h2>
         <img src="images/illustrations/wheel.svg" alt="portrait" class="illustration">
       </div>
+
       <div class="two-thirds">
         <form @submit.prevent="handleSubmit">
             <div class="question">
@@ -112,56 +189,59 @@
         <!-- <img src="#" alt="portrait" class="illustration"> -->
       </div>
       <div class="two-thirds">
-        <div class="question">
-            <h3>Select your age:</h3>
-            <div class="slidecontainer">
-              <input type="range" min="0" max="100" value="18" step="1" class="slider" id="myRangeTwo" v-model="age">
-              <p>{{age}} years old</p>
-            </div>
-        </div>
+        <form>
+          <div class="question">
+              <h3>Select your age:</h3>
+              <div class="slidecontainer">
+                <input type="range" min="0" max="100" value="18" step="1" class="slider" id="myRangeTwo" v-model="age">
+                <p>{{age}} years old</p>
+              </div>
+          </div>
 
-        <div class="question">
-            <h3>Select your ethnicity (check all that apply):</h3>
-            <label class="container">Native American or American Indian
-              <input type="checkbox" value="Native American or American Indian" v-model="ethnicity">
-              <span class="checkmark"></span>
-            </label>
-            <label class="container">Black or African American
-              <input type="checkbox" value="Black or African American" v-model="ethnicity">
-              <span class="checkmark"></span>
-            </label>
-            <label class="container">Asian / Pacific Islander
-              <input type="checkbox" value="Asian / Pacific Islander" v-model="ethnicity">
-              <span class="checkmark"></span>
-            </label>
-            <label class="container">White
-              <input type="checkbox" value="White" v-model="ethnicity">
-              <span class="checkmark"></span>
-            </label>
-            <label class="container">Other–do tell:
-              <input type="checkbox" value="Other: " v-model="ethnicity">
-              <span class="checkmark"></span>
-            </label>
-            <input type="text" name="activity" v-model="otherrace">
-        </div>
+          <div class="question">
+              <h3>Select your ethnicity (check all that apply):</h3>
+              <label class="container">Native American or American Indian
+                <input type="checkbox" value="Native American or American Indian" v-model="ethnicity">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container">Black or African American
+                <input type="checkbox" value="Black or African American" v-model="ethnicity">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container">Asian / Pacific Islander
+                <input type="checkbox" value="Asian / Pacific Islander" v-model="ethnicity">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container">White
+                <input type="checkbox" value="White" v-model="ethnicity">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container">Other–do tell:
+                <input type="checkbox" value="Other: " v-model="ethnicity">
+                <span class="checkmark"></span>
+              </label>
+              <input type="text" name="activity" v-model="otherrace">
+          </div>
 
 
-        <div class="question">
-            <h3>Select your employment status:</h3>
-            <div class="custom-select">
-              <select v-model="employment">
-                <option value="Employed for wages">Employed for wages</option>
-                <option value="Self-employed">Self-employed</option>
-                <option value="Out of work and looking for work">Out of work and looking for work</option>
-                <option value="Out of work but not currently looking for work">Out of work but not currently looking for work</option>
-                <option value="Homemaker">Homemaker</option>
-                <option value="Student">Student</option>
-                <option value="Military">Military</option>
-                <option value="Retired">Retired</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-        </div>
+          <div class="question">
+              <h3>Select your employment status:</h3>
+              <div class="custom-select">
+                <select v-model="employment">
+                  <option value="Employed for wages">Employed for wages</option>
+                  <option value="Self-employed">Self-employed</option>
+                  <option value="Out of work and looking for work">Out of work and looking for work</option>
+                  <option value="Out of work but not currently looking for work">Out of work but not currently looking for work</option>
+                  <option value="Homemaker">Homemaker</option>
+                  <option value="Student">Student</option>
+                  <option value="Military">Military</option>
+                  <option value="Retired">Retired</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+          </div>
+        </form>
+
       </div>
     </div>
 
@@ -176,11 +256,11 @@
       <div class="two-thirds">
         <!-- <input type="submit" value="Submit"> -->
         <!-- <p class="button"><a href="survey-success.html">Submit</a></p> -->
-        <button type="submit" class="button"><a href="survey-success.html">Submit</a></button>
+        <button type="submit" class="button" v-on:click="saveMyForm">Submit</button>
 
       </div>
     </div>
-
+</div>
 
 
     <!-- SURVEY RESPONSES -->
@@ -194,24 +274,37 @@
         <!-- <template>
         <results is="results"></results>
       </template> -->
-          <h3>For what purpose(s) do you use this route?:</h3>
-            <p>{{purpose}} {{activity}}</p>
-          <h3>What is your primary form of transport on this route?:</h3>
-            <p>{{transport}} {{othertransport}}</p>
-          <h3>How safe do you feel biking in this area?:</h3>
-            <p>{{safe}}</p>
-          <h3>What is the maximum time (one way) you would travel for basic errands?:</h3>
-            <p>{{time}} minutes</p>
-          <h3>Your age:</h3>
-            <p>{{age}} years old</p>
-          <h3>Your ethnicity:</h3>
-            <p>{{ethnicity}} {{otherrace}}</p>
-          <h3>Your employment status:</h3>
-            <p>{{employment}} {{otherrace}}</p>
+          <h3>Your purpose(s) for using this route: <span>{{purpose}} {{activity}}</span> </h3>
+
+          <h3>Your primary form of transport on this route: <span>{{transport}} {{othertransport}}</span> </h3>
+          <h3>How safe you feel biking in this area: <span>{{safe}}</span></h3>
+
+          <h3>The maximum time (one way) you would travel for basic errands: <span>{{time}} minutes</span></h3>
+
+          <h3>Your age: <span>{{age}} years old</span></h3>
+
+          <h3>Your ethnicity: <span>{{ethnicity}} {{otherrace}}</span></h3>
+          <h3>Your employment status: <span>{{employment}} {{otherrace}}</span></h3>
+
       </div>
     </div>
 
   </div>
+  <footer>
+    <div class="one-third">
+      <address>1234 Street Name<br>
+      City State Zip</address>
+      <p>123.456.7890</p>
+    </div>
+    <div class="one-third">
+      <p id=contact><a href="contact.html">Contact</a></p>
+      <p><a href="volunteer.html">Volunteer</a></p>
+    </div>
+    <div class="one-third">
+      <p class="social"><a href="#"><i class="fab fa-facebook-f" id="facebook"></i></a></p>
+      <p class="social"><a href="#" class="social"><i class="fab fa-instagram" id="instagram"></i></a></p>
+    </div>
+  </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="js/vue.js"></script>

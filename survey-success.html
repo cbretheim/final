@@ -69,6 +69,8 @@
   </nav>
 
 
+
+
   <div class="intro survey-success">
     <h1>Survey Submitted</h1>
     <h2>Thanks for sharing your voice!</h2>
@@ -77,27 +79,15 @@
   </div>
 
 <!-- ATTEMPT AT GETTING DATA FROM FORM -->
-<div  id="form" v-cloak>
+<div  id="page2" v-cloak>
   <div class="segment response">
     <div class="one-third">
       <h2>Your responses</h2>
 
     </div>
     <div class="two-thirds">
-      <h3>For what purpose(s) do you use this route?:</h3>
-        <p>{{purpose}} {{activity}}</p>
-      <h3>What is your primary form of transport on this route?:</h3>
-        <p>{{transport}} {{othertransport}}</p>
-      <h3>How safe do you feel biking in this area?:</h3>
-        <p>{{safe}}</p>
-      <h3>What is the maximum time (one way) you would travel for basic errands?:</h3>
-        <p>{{time}} minutes</p>
-      <h3>Your age:</h3>
-        <p>{{age}} years old</p>
-      <h3>Your ethnicity:</h3>
-        <p>{{ethnicity}} {{otherrace}}</p>
-      <h3>Your employment status:</h3>
-        <p>{{employment}} {{otherrace}}</p>
+      <!-- PUT SURVEY RESULTS HERE -->
+      {{purposetwo}}
     </div>
   </div>
 </div>
@@ -119,7 +109,8 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <script src="js/vue.js"></script>
+  <!-- <script src="js/vue.js"></script> -->
+  <script src="js/script2.js"></script>
 
   <script>
   /* Open */
