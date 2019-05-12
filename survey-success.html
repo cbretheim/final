@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>SPOKED</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <style>
+    @font-face {
+    font-family: "Druk Condensed";
+    src: url(fonts/druk_condensed/DrukCond-Super.otf);
+    }
+    </style>
+
+    <style>
+    @font-face {
+    font-family: "Avenir Next";
+    src: url(fonts/avenir-next/Avenir-Next.ttc);
+    }
+    </style>
+
+    <style>
+    @font-face {
+    font-family: "Berbati";
+    src: url(fonts/berbati/Webfont/Berbati-Regular.woff);
+    }
+    </style>
+
+    </head>
+
+<body>
+  <div class="hidden-nav" id="myhiddennav">
+    <!-- Button to close the mobile navigation -->
+      <a href="javascript:void(0)" class="close-icon" onclick="closeNav()">&times;</a>
+
+    <!-- Mobile nav content -->
+    <div class="hidden-nav-content">
+      <a href="index.html">Home</a>
+      <a href="whatwedo.html">What we do</a>
+      <a href="#">Projects</a>
+      <a href="toolkit.html">Get the toolkit</a>
+      <a href="team.html">Our team</a>
+    </div>
+  </div>
+
+
+  <nav class="main-nav">
+    <h1><a href="index.html">SPOKED</a></h1>
+    <span onclick="openNav()" class="bars">&#9776;</span>
+    <ul>
+      <li><a href="whatwedo.html">What we do</a></li>
+      <li class="dropdown"><a href="">Projects</a>
+          <ul class="drop-nav">
+            <li class="flyout"><a href="current-projects.html">Current</a>
+              <ul class="flyout-nav">
+                <li><a href="project1.html">Project 1</a></li>
+                <li><a href="#">Project 2</a></li>
+                <li><a href="#">Project 3</a></li>
+              </ul>
+            </li>
+            <li><a href="past-projects.html">Past</a></li>
+          </ul>
+        </li>
+      <li><a href="toolkit.html">Get the toolkit</a></li>
+      <li><a href="team.html">Our team</a></li>
+    </ul>
+  </nav>
+
+
+  <div class="intro survey-success">
+    <h1>Survey Submitted</h1>
+    <h2>Thanks for sharing your voice!</h2>
+    <h3 id="questions">Questions?</h3>
+    <h3 id="survey-contact">Contact: <a href = "mailto: info@example.com">info@spoked.com</a></h3>
+  </div>
+
+<!-- ATTEMPT AT GETTING DATA FROM FORM -->
+<div  id="form" v-cloak>
+  <div class="segment response">
+    <div class="one-third">
+      <h2>Your responses</h2>
+
+    </div>
+    <div class="two-thirds">
+      <h3>For what purpose(s) do you use this route?:</h3>
+        <p>{{purpose}} {{activity}}</p>
+      <h3>What is your primary form of transport on this route?:</h3>
+        <p>{{transport}} {{othertransport}}</p>
+      <h3>How safe do you feel biking in this area?:</h3>
+        <p>{{safe}}</p>
+      <h3>What is the maximum time (one way) you would travel for basic errands?:</h3>
+        <p>{{time}} minutes</p>
+      <h3>Your age:</h3>
+        <p>{{age}} years old</p>
+      <h3>Your ethnicity:</h3>
+        <p>{{ethnicity}} {{otherrace}}</p>
+      <h3>Your employment status:</h3>
+        <p>{{employment}} {{otherrace}}</p>
+    </div>
+  </div>
+</div>
+
+  <footer>
+    <div class="one-third">
+      <address>1234 Street Name<br>
+      City State Zip</address>
+      <p>123.456.7890</p>
+    </div>
+    <div class="one-third">
+      <p id=contact><a href="contact.html">Contact</a></p>
+      <p><a href="volunteer.html">Volunteer</a></p>
+    </div>
+    <div class="one-third">
+      <p class="social"><a href="#"><i class="fab fa-facebook-f" id="facebook"></i></a></p>
+      <p class="social"><a href="#" class="social"><i class="fab fa-instagram" id="instagram"></i></a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="js/vue.js"></script>
+
+  <script>
+  /* Open */
+  function openNav() {
+    document.getElementById("myhiddennav").style.display = "block";
+  }
+
+  /* Close */
+  function closeNav() {
+    document.getElementById("myhiddennav").style.display = "none";
+  }
+  </script>
+
+
+
+  </body>
+
+  </html>

@@ -1,0 +1,221 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+    <title>Spoked</title>
+  </head>
+
+  <body>
+    <div id="form" v-cloak>
+    <div class="segment">
+      <div class="one-third survey">
+        <h2>Travel Habits</h2>
+        <img src="images/illustrations/wheel.svg" alt="portrait" class="illustration">
+      </div>
+      <div class="two-thirds">
+        <form @submit.prevent="handleSubmit">
+            <div class="question">
+              <h3>For what purpose(s) do you use this route?</h3>
+              <label class="container">Work
+                <input type="checkbox" value="Work" v-model="purpose">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container">School
+                <input type="checkbox" value="School" v-model="purpose">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container">Errands
+                <input type="checkbox" value="Errands" v-model="purpose">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container">Leisure
+                <input type="checkbox" value="Leisure" v-model="purpose">
+                <span class="checkmark"></span>
+              </label>
+              <label class="container">Other–do tell:
+                <input type="checkbox" value="Other: " v-model="purpose">
+                <span class="checkmark"></span>
+              </label>
+              <input type="text" name="activity" v-model="activity">
+            </div>
+
+            <div class="question">
+              <h3>What is your primary form of transport on this route?</h3>
+              <label class="container">Car
+                <input type="radio" value="Car" v-model="transport">
+                <span class="radio"></span>
+              </label>
+              <label class="container">Bus
+                <input type="radio" value="Bus" v-model="transport">
+                <span class="radio"></span>
+              </label>
+              <label class="container">Bike
+                <input type="radio" value="Bike" v-model="transport">
+                <span class="radio"></span>
+              </label>
+              <label class="container">Walk
+                <input type="radio" value="Walk" v-model="transport">
+                <span class="radio"></span>
+              </label>
+              <label class="container">Other–do tell:
+                <input type="radio" value="Other: " v-model="transport">
+                <span class="radio"></span>
+              </label>
+              <input type="text" name="activity" v-model="othertransport">
+            </div>
+
+            <div class="question">
+                <h3>How safe do you feel biking in this area?</h3>
+                <label class="container">Scared for my life
+                  <input type="radio" value="Scared for my life" v-model="safe">
+                  <span class="radio"></span>
+                </label>
+                <label class="container">Uncomfortable
+                  <input type="radio" value="Uncomfortable" v-model="safe">
+                  <span class="radio"></span>
+                </label>
+                <label class="container">Just fine
+                  <input type="radio" value="Just fine" v-model="safe">
+                  <span class="radio"></span>
+                </label>
+                <label class="container">Comfortable
+                  <input type="radio" value="Comfortable" v-model="safe">
+                  <span class="radio"></span>
+                </label>
+                <label class="container">Fabulous
+                  <input type="radio" value="Fabulous" v-model="safe">
+                  <span class="radio"></span>
+                </label>
+            </div>
+
+            <div class="question">
+                <h3>What is the maximum time (one way) you would travel for basic errands?</h3>
+                <div class="slidecontainer">
+                  <input type="range" min="5" max="45" value="5" step="5" class="slider" id="myRange" v-model="time">
+                  <p>{{time}} minutes</p>
+                </div>
+            </div>
+
+        </form>
+
+      </div>
+    </div>
+
+
+    <!-- ABOUT YOU SECTION -->
+
+    <div class="segment">
+      <div class="one-third survey">
+        <h2>About you</h2>
+        <!-- <img src="#" alt="portrait" class="illustration"> -->
+      </div>
+      <div class="two-thirds">
+        <div class="question">
+            <h3>Select your age:</h3>
+            <div class="slidecontainer">
+              <input type="range" min="0" max="100" value="18" step="1" class="slider" id="myRangeTwo" v-model="age">
+              <p>{{age}} years old</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>Select your ethnicity (check all that apply):</h3>
+            <label class="container">Native American or American Indian
+              <input type="checkbox" value="Native American or American Indian" v-model="ethnicity">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Black or African American
+              <input type="checkbox" value="Black or African American" v-model="ethnicity">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Asian / Pacific Islander
+              <input type="checkbox" value="Asian / Pacific Islander" v-model="ethnicity">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">White
+              <input type="checkbox" value="White" v-model="ethnicity">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">Other–do tell:
+              <input type="checkbox" value="Other: " v-model="ethnicity">
+              <span class="checkmark"></span>
+            </label>
+            <input type="text" name="activity" v-model="otherrace">
+        </div>
+
+
+        <div class="question">
+            <h3>Select your employment status:</h3>
+            <div class="custom-select">
+              <select v-model="employment">
+                <option value="Employed for wages">Employed for wages</option>
+                <option value="Self-employed">Self-employed</option>
+                <option value="Out of work and looking for work">Out of work and looking for work</option>
+                <option value="Out of work but not currently looking for work">Out of work but not currently looking for work</option>
+                <option value="Homemaker">Homemaker</option>
+                <option value="Student">Student</option>
+                <option value="Military">Military</option>
+                <option value="Retired">Retired</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- SUBMIT SURVEY -->
+
+    <div class="segment survey-prompt">
+      <div class="one-third">
+        <h2>Share your ideas!</h2>
+      </div>
+      <div class="two-thirds">
+        <!-- <input type="submit" value="Submit"> -->
+        <!-- <p class="button"><a href="survey-success.html">Submit</a></p> -->
+        <button type="submit" class="button"><a href="survey-success.html">Submit</a></button>
+
+      </div>
+    </div>
+
+
+
+    <!-- SURVEY RESPONSES -->
+
+    <div class="segment response">
+      <div class="one-third">
+        <h2>Your responses</h2>
+
+      </div>
+      <div class="two-thirds">
+        <!-- <template>
+        <results is="results"></results>
+      </template> -->
+          <h3>For what purpose(s) do you use this route?:</h3>
+            <p>{{purpose}} {{activity}}</p>
+          <h3>What is your primary form of transport on this route?:</h3>
+            <p>{{transport}} {{othertransport}}</p>
+          <h3>How safe do you feel biking in this area?:</h3>
+            <p>{{safe}}</p>
+          <h3>What is the maximum time (one way) you would travel for basic errands?:</h3>
+            <p>{{time}} minutes</p>
+          <h3>Your age:</h3>
+            <p>{{age}} years old</p>
+          <h3>Your ethnicity:</h3>
+            <p>{{ethnicity}} {{otherrace}}</p>
+          <h3>Your employment status:</h3>
+            <p>{{employment}} {{otherrace}}</p>
+      </div>
+    </div>
+
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="js/vue.js"></script>
+<!-- <script src="js/main.js"></script> -->
+
+</body>
+</html>
