@@ -1,3 +1,6 @@
+//LOCAL localStorage
+
+
 // SCROLL PROGRESS FUNCTION
 window.onscroll = function() {myFunction()};
 
@@ -24,7 +27,8 @@ var myVue = new Vue({
    otherrace: "",
    employment: "",
    otheremployment: ""
- },
+ }
+},
  methods: {
    saveMyForm: function() {
     localStorage.setItem("purposetwo", this.purpose);
